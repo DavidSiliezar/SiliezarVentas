@@ -32,3 +32,36 @@ C:\Users\David S\OneDrive\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.exe.con
 C:\Users\David S\OneDrive\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmCrearNuevaClave.resources
 C:\Users\David S\OneDrive\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmInicio.resources
 C:\Users\David S\OneDrive\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.ResolveComReference.cache
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\Vistas.exe.config
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\Vistas.exe
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\Vistas.pdb
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Buffers.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Memory.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Buffers.xml
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Memory.xml
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.ResolveComReference.cache
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmCambiarClave.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmCrearNuevaClave.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmCrearUsuario.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmGestionarAlmacenista.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmInicio.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmLogin.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmOlvideMiClave.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmPrimerUsuario.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmRegistrarVenta.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Formularios.frmVendedor.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.Properties.Resources.resources
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.GenerateResource.cache
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.csproj.Up2Date
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.exe
+C:\Users\Estudiante\Desktop\SiliezarVentas\Vistas\obj\Debug\Vistas.pdb

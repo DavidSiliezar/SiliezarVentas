@@ -394,5 +394,13 @@ namespace Vistas.Formularios
                 MessageBox.Show("Error al generar el reporte:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtPrecioUnidad.Clear();
+            txtProductoDescripcion.Clear();
+            txtProductoNombre.Clear();
+            numericCantidad.Value = numericCantidad.Minimum;
+        }
     }
 }

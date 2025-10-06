@@ -12,7 +12,7 @@ namespace Modelos
 {
     public class Conexion
     {
-        private static string servidor = "LAPTOP-0LLFB3RC\\SQLEXPRESS";
+        private static string servidor = "LAB02-DS-EQ07\\SQLEXPRESS";
         private static string baseDeDatos = "Inventario";
 
         public static SqlConnection Conectar()
@@ -21,7 +21,7 @@ namespace Modelos
             {
                 //creamos una cadena de conexion
                 string cadena =
-                    $"Data Source = {servidor},1833;Initial Catalog = {baseDeDatos};Integrated Security = true;";
+                    $"Data Source = {servidor},61798;Initial Catalog = {baseDeDatos};Integrated Security = true;";
 
                 //Creamos un objeto de tipo SqlConnection
                 SqlConnection con = new SqlConnection(cadena);
