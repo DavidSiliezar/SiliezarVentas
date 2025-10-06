@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modelos", "Modelos", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{BD55815C-33A7-4C18-83A1-96E508228737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vistas", "Vistas", "{E711232A-72F7-46B4-9C15-E66068156196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\Vistas.csproj", "{7021A3AC-5770-415F-BB7D-46A7832104AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD55815C-33A7-4C18-83A1-96E508228737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD55815C-33A7-4C18-83A1-96E508228737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD55815C-33A7-4C18-83A1-96E508228737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD55815C-33A7-4C18-83A1-96E508228737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7021A3AC-5770-415F-BB7D-46A7832104AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7021A3AC-5770-415F-BB7D-46A7832104AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7021A3AC-5770-415F-BB7D-46A7832104AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7021A3AC-5770-415F-BB7D-46A7832104AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD55815C-33A7-4C18-83A1-96E508228737} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7021A3AC-5770-415F-BB7D-46A7832104AC} = {E711232A-72F7-46B4-9C15-E66068156196}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAC30782-ECA2-4D00-942D-26AC1B6DA68C}
+	EndGlobalSection
+EndGlobal
