@@ -27,7 +27,7 @@ namespace Vistas
                 Application.Run(new frmPrimerUsuario());
             }
 
-            //Application.Run(new frmOlvideMiClave());
+          
         }
     }
 }

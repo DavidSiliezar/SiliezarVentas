@@ -96,15 +96,16 @@
             this.txtProductoDescripcion.Location = new System.Drawing.Point(214, 32);
             this.txtProductoDescripcion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtProductoDescripcion.Name = "txtProductoDescripcion";
-            this.txtProductoDescripcion.Size = new System.Drawing.Size(174, 20);
+            this.txtProductoDescripcion.Size = new System.Drawing.Size(174, 23);
             this.txtProductoDescripcion.TabIndex = 16;
             this.txtProductoDescripcion.TextChanged += new System.EventHandler(this.txtProductoDescripcion_TextChanged);
+            this.txtProductoDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoDescripcion_KeyPress);
             // 
             // dgvVenta
             // 
             this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenta.Location = new System.Drawing.Point(120, 255);
-            this.dgvVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvVenta.Margin = new System.Windows.Forms.Padding(2);
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.RowHeadersWidth = 51;
@@ -112,7 +113,6 @@
             this.dgvVenta.Size = new System.Drawing.Size(1120, 483);
             this.dgvVenta.TabIndex = 18;
             this.dgvVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenta_CellClick);
-            this.dgvVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenta_CellContentClick);
             // 
             // GroupBox5
             // 
@@ -133,7 +133,6 @@
             this.GroupBox5.TabIndex = 16;
             this.GroupBox5.TabStop = false;
             this.GroupBox5.Text = "Producto";
-            this.GroupBox5.Enter += new System.EventHandler(this.GroupBox5_Enter);
             // 
             // numericCantidad
             // 
@@ -151,14 +150,13 @@
             0});
             this.numericCantidad.Name = "numericCantidad";
             this.numericCantidad.ReadOnly = true;
-            this.numericCantidad.Size = new System.Drawing.Size(93, 20);
+            this.numericCantidad.Size = new System.Drawing.Size(93, 23);
             this.numericCantidad.TabIndex = 19;
             this.numericCantidad.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericCantidad.ValueChanged += new System.EventHandler(this.numericCantidad_ValueChanged);
             // 
             // Label12
             // 
@@ -166,10 +164,9 @@
             this.Label12.Location = new System.Drawing.Point(211, 60);
             this.Label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(61, 13);
+            this.Label12.Size = new System.Drawing.Size(77, 17);
             this.Label12.TabIndex = 10;
             this.Label12.Text = "Cantidad:";
-            this.Label12.Click += new System.EventHandler(this.Label12_Click);
             // 
             // label13
             // 
@@ -177,19 +174,18 @@
             this.label13.Location = new System.Drawing.Point(9, 60);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 13);
+            this.label13.Size = new System.Drawing.Size(115, 17);
             this.label13.TabIndex = 9;
             this.label13.Text = "Precio Unidad:";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // txtPrecioUnidad
             // 
             this.txtPrecioUnidad.Location = new System.Drawing.Point(12, 76);
             this.txtPrecioUnidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPrecioUnidad.Name = "txtPrecioUnidad";
-            this.txtPrecioUnidad.Size = new System.Drawing.Size(115, 20);
+            this.txtPrecioUnidad.Size = new System.Drawing.Size(115, 23);
             this.txtPrecioUnidad.TabIndex = 18;
-            this.txtPrecioUnidad.TextChanged += new System.EventHandler(this.txtPrecioUnidad_TextChanged);
+            this.txtPrecioUnidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioUnidad_KeyPress);
             // 
             // label17
             // 
@@ -197,10 +193,9 @@
             this.label17.Location = new System.Drawing.Point(211, 15);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 13);
+            this.label17.Size = new System.Drawing.Size(93, 17);
             this.label17.TabIndex = 3;
             this.label17.Text = "Descripción";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label15
             // 
@@ -208,19 +203,18 @@
             this.label15.Location = new System.Drawing.Point(10, 15);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.Size = new System.Drawing.Size(64, 17);
             this.label15.TabIndex = 3;
             this.label15.Text = "Nombre";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // txtProductoNombre
             // 
             this.txtProductoNombre.Location = new System.Drawing.Point(13, 32);
             this.txtProductoNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtProductoNombre.Name = "txtProductoNombre";
-            this.txtProductoNombre.Size = new System.Drawing.Size(174, 20);
+            this.txtProductoNombre.Size = new System.Drawing.Size(174, 23);
             this.txtProductoNombre.TabIndex = 15;
-            this.txtProductoNombre.TextChanged += new System.EventHandler(this.txtProductoNombre_TextChanged);
+            this.txtProductoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoNombre_KeyPress);
             // 
             // panel7
             // 
@@ -228,20 +222,18 @@
             this.panel7.Controls.Add(this.btnEstadistica);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 452);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(117, 171);
             this.panel7.TabIndex = 5;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel8
             // 
             this.panel8.Location = new System.Drawing.Point(2, 176);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(111, 129);
             this.panel8.TabIndex = 0;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // btnEstadistica
             // 
@@ -256,7 +248,6 @@
             this.btnEstadistica.Size = new System.Drawing.Size(117, 171);
             this.btnEstadistica.TabIndex = 4;
             this.btnEstadistica.UseVisualStyleBackColor = true;
-            this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
             // pnlMenuPrincipal
             // 
@@ -267,7 +258,6 @@
             this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
             this.pnlMenuPrincipal.Size = new System.Drawing.Size(117, 800);
             this.pnlMenuPrincipal.TabIndex = 15;
-            this.pnlMenuPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenuPrincipal_Paint);
             // 
             // panel4
             // 
@@ -278,22 +268,20 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(117, 800);
             this.panel4.TabIndex = 6;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.btnSalir);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 712);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(117, 88);
             this.panel10.TabIndex = 6;
-            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // btnSalir
             // 
@@ -316,11 +304,10 @@
             this.panel9.Controls.Add(this.btnVentas);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 298);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(117, 154);
             this.panel9.TabIndex = 5;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // btnVentas
             // 
@@ -344,11 +331,10 @@
             this.panel6.Controls.Add(this.btnInicio);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 162);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(117, 136);
             this.panel6.TabIndex = 0;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // btnInicio
             // 
@@ -371,11 +357,10 @@
             this.panel5.Controls.Add(this.btnAjustes);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(117, 162);
             this.panel5.TabIndex = 2;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnAjustes
             // 
@@ -417,7 +402,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(12, 800);
             this.panel3.TabIndex = 18;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -427,7 +411,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1306, 21);
             this.panel1.TabIndex = 16;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -437,7 +420,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1306, 36);
             this.panel2.TabIndex = 17;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pnlContenido
             // 
@@ -453,7 +435,6 @@
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1306, 857);
             this.pnlContenido.TabIndex = 19;
-            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
             // 
             // btnGenerarReporte
             // 
@@ -479,13 +460,12 @@
             this.groupBox2.Controls.Add(this.btnAgregarProducto);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(681, 28);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(558, 108);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btnLimpiar
             // 
@@ -519,7 +499,7 @@
             // 
             // frmRegistrarVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1306, 857);
             this.Controls.Add(this.pnlMenuPrincipal);
@@ -529,7 +509,7 @@
             this.Controls.Add(this.pnlContenido);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRegistrarVenta";
             this.Text = "Registrar Venta";
             this.Load += new System.EventHandler(this.frmRegistrarVenta_Load);

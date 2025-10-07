@@ -50,32 +50,93 @@ namespace Vistas.Formularios
        
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario();
-            int id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-            string registroEliminar = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
-            DialogResult respuesta = MessageBox.Show("¿Quieres eliminar este registro?\n"
-                + registroEliminar, "Eliminando un registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            try
             {
-                if (usuario.EliminarUsuario(id) == true)
+                // Contar solo filas de datos reales (excluye la fila "nueva")
+                int totalUsuarios = dgvUsuarios.Rows.Cast<DataGridViewRow>().Count(r => !r.IsNewRow);
+                if (totalUsuarios <= 1)
                 {
-                    MessageBox.Show("Registro Eliminado\n" + registroEliminar, "Eliminado",
+                    MessageBox.Show("No se puede eliminar el único usuario del sistema.", "Acción no permitida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Validar selección
+                if (dgvUsuarios.CurrentRow == null || dgvUsuarios.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("Selecciona un usuario primero.", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Obtener id y nombre de forma segura
+                object idObj = dgvUsuarios.CurrentRow.Cells[0].Value;
+                object nombreObj = dgvUsuarios.CurrentRow.Cells[1].Value;
+                if (idObj == null || !int.TryParse(idObj.ToString(), out int id))
+                {
+                    MessageBox.Show("No se pudo determinar el ID del usuario seleccionado.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string registroEliminar = nombreObj?.ToString() ?? "<usuario sin nombre>";
+
+                // (Opcional) Verificar que no sea el último administrador si existe columna "Rol"
+                if (dgvUsuarios.Columns.Contains("Rol"))
+                {
+                    var rolSeleccionado = dgvUsuarios.CurrentRow.Cells["Rol"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(rolSeleccionado) &&
+                        rolSeleccionado.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                    {
+                        int admins = dgvUsuarios.Rows.Cast<DataGridViewRow>()
+                            .Count(r => !r.IsNewRow
+                                && r.Cells["Rol"].Value != null
+                                && r.Cells["Rol"].Value.ToString().Equals("Administrador", StringComparison.OrdinalIgnoreCase));
+
+                        if (admins <= 1)
+                        {
+                            MessageBox.Show("No puedes eliminar al último administrador.", "Acción no permitida",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                }
+
+                // Confirmar eliminación
+                DialogResult respuesta = MessageBox.Show($"¿Quieres eliminar este registro?\n{registroEliminar}",
+                    "Eliminando un registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    Usuario usuario = new Usuario();
+                    if (usuario.EliminarUsuario(id))
+                    {
+                        MessageBox.Show("Registro eliminado\n" + registroEliminar, "Eliminado",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MostrarUsuario();
+                        txtUsuario.Clear();
+                        txtClave.Clear();
+                        rbnActivo.Visible = false;
+                        rbnActivo.Checked = true;
+                        rbnInactivo.Visible = false;
+                        lblEstadoUsuario.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el registro.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Registro no eliminado", "No seleccionado",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MostrarUsuario();
-                    txtUsuario.Clear();
-                    txtClave.Clear();
-                    rbnActivo.Visible = false;
-                    rbnActivo.Checked = true;
-                    rbnInactivo.Visible = false;
-                    lblEstadoUsuario.Visible = false;
-                    
-
-
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Registro no eliminado", "No seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar el usuario: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

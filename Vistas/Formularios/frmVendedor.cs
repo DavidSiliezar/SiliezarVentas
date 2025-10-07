@@ -198,6 +198,19 @@ namespace Vistas.Formularios
                     return;
                 }
 
+                // Validar si el producto ya existe
+                DataTable productosExistentes = Producto.MostrarVentasConID();
+                bool productoDuplicado = productosExistentes.AsEnumerable().Any(row =>
+                    string.Equals(row.Field<string>("NombreProducto"), txtProductoNombre.Text.Trim(), StringComparison.OrdinalIgnoreCase)
+                );
+
+                if (productoDuplicado)
+                {
+                    MessageBox.Show("Ya existe un producto con ese nombre.", "Producto duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 // Crear objeto producto y asignar valores
                 Producto nuevoProducto = new Producto
                 {
@@ -393,6 +406,65 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("Error al generar el reporte:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtProductoNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir letras, espacio y teclas de control (como backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea el carácter
+                MessageBox.Show("Solo se permiten letras en el nombre del producto.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtProductoDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir letras, espacio y teclas de control (como backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea el carácter
+                MessageBox.Show("Solo se permiten letras en el nombre del producto.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtProductoDescripcion.Clear();
+            txtProductoNombre.Clear();
+            txtPrecioUnidad.Clear();
+            numericCantidad.Value = numericCantidad.Minimum;
+
+        }
+
+        private void txtPrecioUnidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            // Permitir tecla de retroceso (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir solo dígitos o un punto decimal
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y decimales.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Evitar más de un punto decimal
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains('.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permite un punto decimal.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtPrecioUnidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,9 +21,6 @@ namespace Vistas.Formularios
         {
             InitializeComponent();
         }
-
-
-
         #region "Metodo para pintar formularios"
         //Creamos un atributo
         private Form activarForm = null;
@@ -61,16 +58,12 @@ namespace Vistas.Formularios
 
         private void frmRegistrarVenta_Load(object sender, EventArgs e)
         {
-
             CargarProductosEnDGV();
             numericCantidad.Minimum = 1;
             numericCantidad.Maximum = 1000;
             numericCantidad.DecimalPlaces = 0;
             numericCantidad.Increment = 1;
             numericCantidad.Value = 1;
-
-
-
         }
 
 
@@ -133,6 +126,19 @@ namespace Vistas.Formularios
                     return;
                 }
 
+                // Validar si el producto ya existe
+                DataTable productosExistentes = Producto.MostrarVentasConID();
+                bool productoDuplicado = productosExistentes.AsEnumerable().Any(row =>
+                    string.Equals(row.Field<string>("NombreProducto"), txtProductoNombre.Text.Trim(), StringComparison.OrdinalIgnoreCase)
+                );
+
+                if (productoDuplicado)
+                {
+                    MessageBox.Show("Ya existe un producto con ese nombre.", "Producto duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 // Crear objeto producto y asignar valores
                 Producto nuevoProducto = new Producto
                 {
@@ -153,7 +159,7 @@ namespace Vistas.Formularios
                     txtProductoNombre.Clear();
                     txtProductoDescripcion.Clear();
                     txtPrecioUnidad.Clear();
-                    numericCantidad.Value = numericCantidad.Minimum;
+                    numericCantidad.Value = numericCantidad.Minimum;    
                     // Limpia los campos después de agregar
                     txtProductoNombre.Clear();
                     txtProductoDescripcion.Clear();
@@ -275,6 +281,7 @@ namespace Vistas.Formularios
                             txtProductoNombre.Clear();
                             txtProductoDescripcion.Clear();
                             txtPrecioUnidad.Clear();
+                            numericCantidad.Value = numericCantidad.Minimum;
                             // Actualizar DataGridView después de eliminar
                             CargarProductosEnDGV();
                         }
@@ -323,161 +330,6 @@ namespace Vistas.Formularios
                     MessageBox.Show("Ocurrió un error al seleccionar el producto:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void pnlContenido_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtProductoDescripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmpleadoCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmpleadoApellidos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmpleadoNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GroupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericCantidad_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPrecioUnidad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtProductoNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnEstadistica_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlMenuPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -573,6 +425,59 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("Error al generar el reporte:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtProductoNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir letras, espacio y teclas de control (como backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea el carácter
+                MessageBox.Show("Solo se permiten letras en el nombre del producto.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+     
+
+        private void txtProductoDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir letras, espacios, comas, puntos y teclas de control
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten letras, espacios, puntos y comas en la descripción.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+        private void txtPrecioUnidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir tecla de retroceso (Backspace)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Permitir solo dígitos o un punto decimal
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y decimales.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Evitar más de un punto decimal
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains('.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permite un punto decimal.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtProductoDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

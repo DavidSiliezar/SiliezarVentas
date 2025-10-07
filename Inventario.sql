@@ -24,7 +24,7 @@ GO
 CREATE TABLE Usuario (
     idUsuario INT IDENTITY(1,1) PRIMARY KEY,
     nombreUsuario VARCHAR(100) UNIQUE NOT NULL,
-    clave VARCHAR(100) NOT NULL,
+    clave VARCHAR(100) NOT NULL UNIQUE,
     estadoUsuario BIT NOT NULL DEFAULT 0,
     id_Rol INT NOT NULL,
     primerLogin BIT NOT NULL DEFAULT 1,
@@ -35,8 +35,8 @@ GO
 
 CREATE TABLE Productos (
     ProductoID INT IDENTITY(1,1) PRIMARY KEY,
-    NombreProducto VARCHAR(100) NOT NULL,
-    DescripcionProducto VARCHAR(200) NULL,
+    NombreProducto VARCHAR(100) NOT NULL UNIQUE,
+    DescripcionProducto VARCHAR(200) NULL ,
     PrecioProducto DECIMAL(18,2) NOT NULL CHECK (PrecioProducto >= 0),
     CantidadProducto int not null
 );
